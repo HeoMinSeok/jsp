@@ -1,13 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--
-    request 내장객체는 JSP 에서 가장 많이 사용된다.
-    클라이언트(브라우저)가 전송한 요청 정보를 담고 있다.
-
-    주요 기능
-    - 클라이언트와 서버의 정보 읽기
-    - 클라이언트가 전송한 매개변수 읽기
-    - 요청 헤더 및 쿠키 정보 읽기
---%>
 <html>
 <head>
     <title>내장 객체 - Request</title>
