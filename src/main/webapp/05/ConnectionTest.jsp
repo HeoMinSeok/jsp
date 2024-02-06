@@ -10,6 +10,7 @@
   <%
     JDBCConnect jdbc1 = new JDBCConnect();
     jdbc1.close();
+//    session.setMaxInactiveInterval(1200);
   %>
 
   <h2>JDBC TEST2</h2>

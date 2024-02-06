@@ -1,19 +1,25 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
+<style>
+    body {
+        text-align: center;
+        font-size: 8em;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>JSP - Project</title>
     <%!
-        String str1 = "JSP";
-        String str2 = "안녕하세요";
+        String str1 = "하입보이요";
+        String str2 = "뉴진스";
     %>
 </head>
 <body>
-    <h2>처음 만들어보는 JSP</h2>
+    <h2>하잉 ~</h2>
     <p>
         <%
-            out.println(str2 + str1 + "입니다.");
+            out.println(str2 + " " + str1);
         %>
     </p>
 </body>
