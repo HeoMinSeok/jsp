@@ -5,10 +5,10 @@ import jakarta.servlet.ServletContext;
 import java.sql.*;
 
 public class JDBCConnect {
-    public Connection con; // db 연결 담당
-    public Statement stmt; // 파라미터 없는 정적 쿼리문 실행할 때 사용
-    public PreparedStatement psmt; // 파라미터가 있는 동적 쿼리문 실행할 때 사용
-    public ResultSet rs; // 쿼리문 실행 결과를 저장할 때 사용
+    public Connection con;
+    public Statement stmt;
+    public PreparedStatement psmt;
+    public ResultSet rs;
 
     public JDBCConnect() {
         try {
