@@ -57,7 +57,6 @@
 
         <%
             if(boardList.isEmpty()) {
-
         %>
             <tr>
                 <td colspan="5" align="center">
@@ -94,7 +93,5 @@
             </td>
         </tr>
     </table>
-
-
 </body>
 </html>

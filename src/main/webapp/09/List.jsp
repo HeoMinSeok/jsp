@@ -6,7 +6,6 @@
 <%@ page import="com.util.BoardPage" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    // DAO 생성
     BoardDAO dao = new BoardDAO();
 
     Map<String, Object> param = new HashMap<>();
@@ -45,8 +44,7 @@
 </head>
 <body>
     <jsp:include page="../Common/Link.jsp"></jsp:include>
-    <h2> 목록 보기 - 현재 페이지 : <%= pageNum %>(전체 : <%= totalPage %></h2>
-
+    <h2> 목록 보기 - 현재 페이지 : <%= pageNum %>(전체 : <%= totalPage %>)</h2>
     <%-- 검색 폼 --%>
     <form method="get">
         <table border="1" width="90%">
@@ -62,7 +60,6 @@
             </tr>
         </table>
     </form>
-
     <%--    게시물 목록 테이블    --%>
     <table border="1" width="90%">
         <tr>
@@ -75,7 +72,6 @@
 
         <%
             if(boardList.isEmpty()) {
-
         %>
             <tr>
                 <td colspan="5" align="center">
@@ -116,7 +112,5 @@
             </td>
         </tr>
     </table>
-
-
 </body>
 </html>
