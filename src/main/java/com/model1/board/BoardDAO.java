@@ -68,6 +68,46 @@ public class BoardDAO extends DBCoonPool {
         }
         return bbs;
     }
+    public List<BoardDTO> selectListPage(Map<String, Object> map) {
+        List<BoardDTO> bbs = new ArrayList<BoardDTO>();
+
+        // 쿼리문 작성
+        String query = "SELECT * FROM ("
+                + " SELECT Tb.*, ROWNUM rNum FROM ("
+                + " SELECT * FROM scott.board_jsp";
+        if(map.get("searchWord") != null) {
+            query += " WHERE " + map.get("searchField") + " "
+                    + " LIKE '%" + map.get("searchWord") + "%'";
+        }
+        query += " ORDER BY num desc"
+                + " ) Tb"
+                + " )"
+                + " WHERE rNUM BETWEEN ? AND ?";
+
+        try {
+            psmt = con.prepareStatement(query);
+            psmt.setString(1, map.get("start").toString());
+            psmt.setString(2, map.get("end").toString());
+            rs = psmt.executeQuery();
+
+            while(rs.next()) {
+                BoardDTO dto = new BoardDTO();
+
+                dto.setNum(rs.getString("num"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setId(rs.getString("id"));
+                dto.setPostdate(rs.getDate("postdate"));
+                dto.setVisitcount(rs.getString("visitcount"));
+
+                bbs.add(dto);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return bbs;
+    }
     public int insertWrite(BoardDTO dto) {
         int result = 0;
 
@@ -121,7 +161,7 @@ public class BoardDAO extends DBCoonPool {
     public void updateViewCount(String num) {
         String query = "UPDATE scott.board_jsp"
                 + " SET visitcount = visitcount + 1"
-                + " WHERE num =? ";
+                + " WHERE num = ? ";
         try {
             psmt = con.prepareStatement(query);
             psmt.setString(1, num);
@@ -166,46 +206,5 @@ public class BoardDAO extends DBCoonPool {
             e.printStackTrace();
         }
         return result;
-    }
-
-    public List<BoardDTO> selectListPage(Map<String, Object> map) {
-        List<BoardDTO> bbs = new ArrayList<BoardDTO>();
-
-        // 쿼리문 작성
-        String query = "SELECT * FROM ("
-                + " SELECT Tb.*, ROWNUM rNum FROM ("
-                + " SELECT * FROM scott.board_jsp";
-        if(map.get("searchWord") != null) {
-            query += " WHERE " + map.get("searchField") + " "
-                    + " LIKE '%" + map.get("searchWord") + "%'";
-        }
-        query += " ORDER BY num desc"
-                + " ) Tb"
-                + " )"
-                + " WHERE rNUM BETWEEN ? AND ?";
-
-        try {
-            psmt = con.prepareStatement(query);
-            psmt.setString(1, map.get("start").toString());
-            psmt.setString(2, map.get("end").toString());
-            rs = psmt.executeQuery();
-
-            while(rs.next()) {
-                BoardDTO dto = new BoardDTO();
-
-                dto.setNum(rs.getString("num"));
-                dto.setTitle(rs.getString("title"));
-                dto.setContent(rs.getString("content"));
-                dto.setId(rs.getString("id"));
-                dto.setPostdate(rs.getDate("postdate"));
-                dto.setVisitcount(rs.getString("visitcount"));
-
-                bbs.add(dto);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-        return bbs;
     }
 }

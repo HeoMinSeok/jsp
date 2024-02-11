@@ -1,6 +1,5 @@
 package com.model1.board;
 
-import com.membership.MemberDTO;
 import lombok.Getter;
 import lombok.Setter;
 

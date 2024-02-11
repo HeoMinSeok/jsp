@@ -1,19 +1,19 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
+  long creationTime = session.getCreationTime();
+  String creationTimeStr = dateFormat.format(new Date(creationTime));
+
+  long lastTime = session.getLastAccessedTime();
+  String lastTimeStr = dateFormat.format(new Date(lastTime));
+
+  session.setMaxInactiveInterval(1800);
+%>
 <html>
 <head>
     <title>Title</title>
-  <%
-    SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
-    long creationTime = session.getCreationTime();
-    String creationTimeStr = dateFormat.format(new Date(creationTime));
-
-    long lastTime = session.getLastAccessedTime();
-    String lastTimeStr = dateFormat.format(new Date(lastTime));
-
-//    session.setMaxInactiveInterval(1800);
-  %>
 </head>
 <body>
   <h2>SESSION 설정 확인</h2>

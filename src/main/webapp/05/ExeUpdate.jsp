@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>JDBC</title>
 </head>
 <body>
   <h2>회원 추가 테스트(executeUpdate() 사용)</h2>

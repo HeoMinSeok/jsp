@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="./IsLoggedIn.jsp"%>
 <html>
 <head>
     <title>회원제 게시판</title>
