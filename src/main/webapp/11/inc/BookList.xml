@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<booklist>
+    <book>
+        <name>최지호는 무엇인가?</name>
+        <author>최지호</author>
+        <price>19800</price>
+    </book>
+    <book>
+        <name>금쪽이 지호를 고치는 법</name>
+        <author>최지호</author>
+        <price>25200</price>
+    </book>
+</booklist>
