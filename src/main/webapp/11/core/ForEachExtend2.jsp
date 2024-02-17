@@ -1,0 +1,38 @@
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="com.common.Person" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSTL - FOREACH 2</title>
+</head>
+<body>
+    <h2>List 컬렉션 사용하기</h2>
+    <%
+        LinkedList<Person> lists = new LinkedList<Person>();
+        lists.add(new Person("최지호", 24));
+        lists.add(new Person("한소희", 31));
+        lists.add(new Person("카리나", 25));
+    %>
+    <c:set var="lists" value="<%= lists %>"/>
+    <c:forEach items="${ lists }" var="list">
+        <li>이름 : ${ list.name }, 나이 : ${ list.age } </li>
+    </c:forEach>
+
+    <h2>Map 컬렉션 사용하기</h2>
+    <%
+        Map<String, Person> maps = new HashMap<String, Person>();
+        maps.put("1st", new Person("최지호", 24));
+        maps.put("2nd", new Person("한소희", 31));
+        maps.put("3rd", new Person("카리나", 25));
+    %>
+    <c:set var="maps" value="<%= maps %>"/>
+    <c:forEach items="${ maps }" var="map">
+        <li>Key => ${ map.key } <br/>
+            Value => 이름 : ${ map.value.name}, 나이 : ${ map.value.age }</li>
+    </c:forEach>
+</body>
+</html>
