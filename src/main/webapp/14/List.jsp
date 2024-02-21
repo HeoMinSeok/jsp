@@ -28,6 +28,7 @@
         <tr>
             <th width="10%">번호</th>
             <th width="*">제목</th>
+            <th> 이미지 </th>
             <th width="15%">작성자</th>
             <th width="10%">조회수</th>
             <th width="15%">작성일</th>
@@ -50,6 +51,7 @@
                         <td align="left">
                             <a href="../mvcboard/view.do?idx=${ row.idx }">${ row.title }</a>
                         </td>
+                        <td><img class="container_img" src="../Uploads/${ row.sfile }" style="width: 100%"></td>
                         <td>${ row.name }</td>
                         <td>${ row.visitcount }</td>
                         <td>${ row.postdate }</td>
