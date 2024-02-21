@@ -19,7 +19,7 @@ public class ViewController extends HttpServlet {
         MVCBoardDTO dto = dao.selectView(idx);
         dao.close();
 
-        dto.setContent(dto.getContent().replaceAll("\r\n", "<br/"));
+        dto.setContent(dto.getContent().replaceAll("\n", "<br/>"));
 
         String ext = null, fileName = dto.getSfile();
         if(fileName!=null)
